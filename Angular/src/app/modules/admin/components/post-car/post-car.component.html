@@ -1,0 +1,86 @@
+<div style="margin-top: 50px">
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+  <div class="parent">
+    <div class="child">
+      <div class="imgDiv">
+        <h2 style="text-align: center; font-weight: bold; color: #254e7a;">Post Car</h2>
+      </div>
+
+      <form [formGroup]="postCarForm">
+        <div class="row">
+          <div class="col-md-6">
+            <br><br><br><br><br>
+            <div class="profile-badge">
+              <label for="upload_profile_image" class="upload-label" *ngIf="selectedFile">
+                <img class="profile" style="width:100%; height:80%;" [src]="imagePreview" alt="profile" />
+              </label>
+              <input type="file" id="upload_profile_image" accept="image/x-png,image/gif,image/jpeg"
+                     (change)="onFileSelected($event)" />
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-item">
+              <label>Select a Brand Name</label>
+              <select formControlName="brand">
+                <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+              </select>
+              <p *ngIf="postCarForm.controls['brand'].invalid && postCarForm.controls['brand'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Name</label>
+              <input type="text" placeholder="Name" formControlName="name" />
+              <p *ngIf="postCarForm.controls['name'].invalid && postCarForm.controls['name'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Select a Type</label>
+              <select formControlName="type">
+                <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+              </select>
+              <p *ngIf="postCarForm.controls['type'].invalid && postCarForm.controls['type'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Select a Transmission</label>
+              <select formControlName="transmission">
+                <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+              </select>
+              <p *ngIf="postCarForm.controls['transmission'].invalid && postCarForm.controls['transmission'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Select a Color</label>
+              <select formControlName="color">
+                <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+              </select>
+              <p *ngIf="postCarForm.controls['color'].invalid && postCarForm.controls['color'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Model Year</label>
+              <input type="number" placeholder="Model Year" formControlName="year" />
+              <p *ngIf="postCarForm.controls['year'].invalid && postCarForm.controls['year'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Price</label>
+              <input type="text" placeholder="Price" formControlName="price" />
+              <p *ngIf="postCarForm.controls['price'].invalid && postCarForm.controls['price'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <div class="form-item">
+              <label>Description</label>
+              <textarea rows="3" placeholder="Description" formControlName="description"></textarea>
+              <p *ngIf="postCarForm.controls['description'].invalid && postCarForm.controls['description'].touched"
+                 class="error-tip">This Input Is Required!</p>
+            </div>
+            <button type="button" class="submit-button" (click)="postCar()">Post Car</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

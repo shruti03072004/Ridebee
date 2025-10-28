@@ -1,0 +1,44 @@
+<div style="padding-top: 25px;"></div>
+<div class="top-image">
+  <img src="../../../../../assets/images/1.jpg" >
+</div>
+
+<br><br>
+
+<div style="width: 92%; margin: 0 auto;">
+  <!-- Spinner Replacement -->
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+
+  <!-- Table Replacement -->
+  <table class="custom-table" *ngIf="!isSpinning">
+    <thead>
+    <tr style="background-color: #003973; color: white; text-align: center;">
+      <th style="font-weight: bold; padding: 12px; text-align: center;">From</th>
+      <th style="font-weight: bold; padding: 12px; text-align: center;">To</th>
+      <th style="font-weight: bold; padding: 12px; text-align: center;">Days</th>
+      <th style="font-weight: bold; padding: 12px; text-align: center;">Price</th>
+      <th style="font-weight: bold; padding: 12px; text-align: center;">Status</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let booking of bookedCars" style="text-align: center; background-color: #f9f9f9;">
+      <td style="padding: 12px;">{{ booking.fromDate | date: 'MMM d, y' }}</td>
+      <td style="padding: 12px;">{{ booking.toDate | date: 'MMM d, y' }}</td>
+      <td style="padding: 12px;">{{ booking.days }}</td>
+      <td style="padding: 12px;">${{ booking.amount }}</td>
+      <td style="padding: 12px;">
+        <strong
+          [ngStyle]="{
+            color: booking.bookCarStatus === 'APPROVED' ? '#28a745' :
+                   booking.bookCarStatus === 'REJECTED' ? '#dc3545' :
+                   '#ffc107'
+          }">
+          {{ booking.bookCarStatus }}
+        </strong>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>

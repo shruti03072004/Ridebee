@@ -1,0 +1,88 @@
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <header class="main-header custom-navbar">
+    <div class="navbar-title">
+      <img src="../assets/images/logo.png" width="10%" height="5%" style="margin-left: 25px">
+      <a routerLink="/login">Ridebee</a>
+    </div>
+    <div class="nav-links">
+      <a class="link-button" routerLink="/register" routerLinkActive="active">Signup</a>
+      <a class="link-button" routerLink="/login" routerLinkActive="active">Login</a>
+    </div>
+  </header>
+</div>
+
+<div *ngIf="isAdminLoggedIn">
+  <header class="main-header custom-navbar">
+    <div class="navbar-title">
+      <img src="../assets/images/logo.png" width="10%" height="5%" style="margin-left: 25px">
+      <a routerLink="/login">Ridebee</a>
+    </div>
+    <div class="nav-links">
+      <a class="link-button" routerLink="/admin/dashboard" routerLinkActive="active">Dashboard</a>
+      <a class="link-button" routerLink="/admin/car" routerLinkActive="active">Post Car</a>
+      <a class="link-button" routerLink="/admin/bookings" routerLinkActive="active">Bookings</a>
+      <a class="link-button" routerLink="/admin/car/search" routerLinkActive="active">Search</a>
+      <a class="link-button" (click)="logout()" routerLinkActive="active">Logout</a>
+    </div>
+  </header>
+</div>
+
+<div *ngIf="isCustomerLoggedIn">
+  <header class="main-header custom-navbar">
+    <div class="navbar-title">
+      <img src="../assets/images/logo.png" width="10%" height="5%" style="margin-left: 25px">
+      <a routerLink="/login">Ridebee</a>
+    </div>
+    <div class="nav-links">
+      <a class="link-button" routerLink="/customer/dashboard" routerLinkActive="active">Dashboard</a>
+      <a class="link-button" routerLink="/customer/bookings" routerLinkActive="active">Bookings</a>
+      <a class="link-button" routerLink="/customer/search" routerLinkActive="active">Search</a>
+      <a class="link-button" (click)="logout()" routerLinkActive="active">Logout</a>
+    </div>
+  </header>
+</div>
+
+
+<!-- Your routed content -->
+<router-outlet></router-outlet>
+
+<!-- Modern Footer -->
+<footer class="footer">
+  <div class="footer-container">
+
+    <!-- About Section -->
+    <div class="footer-section about">
+      <h3><i class="bi bi-car-front-fill"></i> Ridebee</h3>
+      <p>
+        Experience effortless car rentals with Ridebee. We provide premium cars at affordable rates
+        so you can travel in style and comfort.
+      </p>
+      <div class="social-links">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+
+    <!-- Contact Section -->
+    <div class="footer-section contact">
+      <h3><i class="bi bi-headset"></i> Contact Us</h3>
+      <p><i class="bi bi-envelope"></i> support@ridebee.com</p>
+      <p><i class="bi bi-telephone"></i> +91 9876543210</p>
+      <p><i class="bi bi-clock"></i> Mon – Sat: 8:00 AM – 5:00 PM</p>
+      <p><i class="bi bi-geo-alt"></i> Ashok Chowk, Sakhar Peth, Solapur</p>
+    </div>
+
+    <!-- Leaflet Map Sectiona -->
+    <div class="footer-section map">
+      <h3><i class="bi bi-geo-alt-fill"></i> Find Us</h3>
+      <div id="leaflet-map" class="map-container"></div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 <span>Ridebee</span>. All Rights Reserved.
+  </div>
+</footer>
+
+

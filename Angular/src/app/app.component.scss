@@ -1,0 +1,155 @@
+
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: black; /* black background with slight transparency */
+  backdrop-filter: blur(8px); /* glassy effect like login card */
+  -webkit-backdrop-filter: blur(8px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* subtle shadow */
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.navbar-title a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff914d; /* orange to match login/signup theme */
+  text-decoration: none;
+}
+
+.nav-links a.link-button {
+  margin-left: 25px;
+  color: #ff914d; /* orange links to match theme */
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.nav-links a.link-button:hover {
+  color: #ffffff; /* turn white on hover */
+  text-decoration: underline;
+  transform: scale(1.05);
+}
+/* === Modern Orange-Black-White 3D Footer === */
+.footer {
+  background: linear-gradient(145deg, #0a0a0a, #1c1c1c);
+  color: #fff;
+  box-shadow: 0 -5px 25px rgba(255, 128, 0, 0.25);
+  padding: 50px 0 20px;
+  margin-top: 60px;
+  font-family: "Poppins", sans-serif;
+  border-top: 2px solid #ff7b00;
+}
+
+.footer-container {
+  width: 90%;
+  margin: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 40px;
+}
+
+/* Footer Sections */
+.footer-section {
+  flex: 1 1 300px;
+  background: #111;
+  border-radius: 16px;
+  padding: 25px;
+  box-shadow: 5px 5px 20px rgba(0,0,0,0.6), -5px -5px 20px rgba(255,123,0,0.15);
+  transition: all 0.3s ease-in-out;
+  border: 1px solid rgba(255, 123, 0, 0.2);
+}
+
+.footer-section:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 0 25px rgba(255, 123, 0, 0.5);
+}
+
+.footer-section h3 {
+  color: #ff7b00;
+  font-size: 22px;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  text-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
+}
+
+.footer-section p {
+  color: #ddd;
+  line-height: 1.6;
+  font-size: 15px;
+}
+
+/* Social Icons */
+.social-links {
+  margin-top: 15px;
+}
+
+.social-links a {
+  margin-right: 15px;
+  font-size: 22px;
+  color: #ff7b00;
+  transition: 0.3s;
+  text-shadow: 0 0 10px rgba(255, 123, 0, 0.3);
+}
+
+.social-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 15px rgba(255, 123, 0, 0.7);
+}
+
+/* Leaflet Map - fixed layout */
+.map-container {
+  width: 100%;
+  height: 300px; /* ✅ gives a stable, square shape */
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 0 25px rgba(255, 123, 0, 0.3);
+  border: 1px solid rgba(255, 123, 0, 0.4);
+  z-index: 1;
+}
+
+.map-container #leaflet-map {
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
+
+
+
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  margin-top: 30px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+}
+
+.footer-bottom span {
+  color: #ff7b00;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 123, 0, 0.4);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer-section {
+    width: 90%;
+  }
+}

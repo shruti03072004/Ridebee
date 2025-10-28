@@ -1,0 +1,68 @@
+<div style="background-color: #F8F8F8; min-height: 91vh; padding-top: 20px;">
+  <div class="d-flex justify-content-center">
+    <div class="p-5 border bg-white rounded shadow-sm" style="width: 90%; max-width: 90%; margin-top: 30px;">
+
+      <div *ngIf="isSpinning" class="spinner">
+        <p>Working...</p>
+      </div>
+
+      <form [formGroup]="bookACarForm" *ngIf="!isSpinning">
+        <div class="row g-3 mb-4 align-items-end">
+          <!-- From Date -->
+          <div class="col-md-5">
+            <label for="fromDate" class="form-label fw-semibold">From Date</label>
+            <input type="date" formControlName="fromDate" class="form-control" id="fromDate" placeholder="From Date" />
+          </div>
+
+          <!-- To Date -->
+          <div class="col-md-5">
+            <label for="toDate" class="form-label fw-semibold">To Date</label>
+            <input type="date" formControlName="toDate" class="form-control" id="toDate" placeholder="To Date" />
+          </div>
+
+          <!-- Book Car Button -->
+          <div class="col-md-2 text-center">
+            <button type="button" class="btn btn-primary w-100 fw-bold"
+                    style="background-color: #108ee9; border: none; padding: 10px 0;"
+                    (click)="bookCar(bookACarForm.value)">
+              Book Car
+            </button>
+          </div>
+        </div>
+      </form>
+
+      <!-- Car Image Section -->
+      <div class="row mt-5 mb-4">
+        <div class="col-12 d-flex justify-content-center">
+          <img class="profile shadow-sm" style="height: 250px; width: 415px; border-radius: 10px;"
+               [src]="car.processedImg" alt="Car Image" />
+        </div>
+      </div>
+
+      <!-- Car Details Section -->
+      <div class="row">
+        <div class="col-12 text-center">
+          <h2 style="cursor: pointer; color: #108ee9; font-weight: bold; margin-bottom: 10px;">
+            {{car.brand}} - {{car.name}}
+          </h2>
+          <p class="text-muted" style="font-size: 1rem; font-style: italic; margin-bottom: 20px;">
+            {{car.description}}
+          </p>
+          <hr style="margin: 20px 0;">
+          <h5 class="fw-normal" style="font-size: 1.2rem; line-height: 2.2; color: #333; padding: 10px;">
+            <span class="fw-semibold ">Price:</span> <span style="color: #555;">Rs.{{car.price}}</span>
+            <span class="mx-3">|</span>
+            <span class="fw-semibold">Color:</span> <span style="color: #555;">{{car.color}}</span>
+            <span class="mx-3">|</span>
+            <span class="fw-semibold">Transmission:</span> <span style="color: #555;">{{car.transmission}}</span>
+            <span class="mx-3">|</span>
+            <span class="fw-semibold">Type:</span> <span style="color: #555;">{{car.type}}</span>
+            <span class="mx-3">|</span>
+            <span class="fw-semibold">Year:</span> <span style="color: #555;">{{car.modelYear | date: 'yyyy'}}</span>
+          </h5>
+          <hr style="margin: 20px 0;">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

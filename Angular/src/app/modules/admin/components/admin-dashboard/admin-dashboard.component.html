@@ -1,0 +1,73 @@
+<div style="padding-top: 25px;"></div>
+<div class="top-image">
+  <img src="../../../../../assets/images/1.jpg" >
+</div>
+
+<div style="padding-top: 30px;"></div>
+
+<div style="width:92%; margin:0 auto">
+  <div class="row">
+
+    <!-- List Part -->
+    <div class="col-md-8">
+      <div *ngFor="let car of cars" class="card mb-3" style="background-color: #F8F8F8;">
+        <div class="row g-0">
+
+          <div class="col-md-4">
+            <img
+              [src]="car.processedImg"
+              class="img-fluid rounded-start"
+              alt="Car image for {{car.brand}} - {{car.name}}"
+              style="height: 80%; width: 92%; object-fit: cover; border-radius: 10px; margin-left:15px; margin-top:21px;"
+            />
+          </div>
+
+          <!-- Details Column (8/12) -->
+          <div class="col-md-8">
+            <div class="card-body">
+
+              <!-- Car Brand and Name -->
+              <h5 class="card-title" style="cursor: pointer; color: #108ee9;">
+                {{car.brand}} - {{car.name}}
+              </h5>
+
+              <!-- Car Description -->
+              <p class="card-text">{{car.description}}</p>
+
+              <hr>
+
+              <!-- Car Specifications -->
+              <p class="card-text">
+                Price: <b>Rs.{{car.price}}</b> - Color: <b>{{car.color}}</b> - Year: <b>{{car.modelYear | date: 'yyyy'}}</b>
+                Transmission: <b>{{car.transmission}}</b> - Type: <b>{{car.type}}</b>
+              </p>
+
+              <hr>
+
+              <!-- Action Buttons -->
+              <div class="text-end">
+                <button
+                  class="btn btn-primary btn-sm"
+                  style="margin-left: 10px;"
+                  routerLink="/admin/car/{{car.id}}/edit"
+                >
+                  Update
+                </button>
+                <button
+                  class="btn btn-danger btn-sm"
+                  style="margin-left: 10px;"
+                  (click)="deleteCar(car.id)"
+                >
+                  Delete
+                </button>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+  </div>
+</div>

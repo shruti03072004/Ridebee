@@ -1,0 +1,131 @@
+/* === Full Page Orange Background === */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #ff6600, #ff4500);
+  color: #fff;
+}
+
+/* === Top Image Section === */
+.top-image {
+  width: 92%;
+  max-width: 1200px;
+  height: 400px;
+  overflow: hidden;
+  border: 3px solid #ff7b00;
+  border-radius: 15px;
+  margin: 20px auto;
+  box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
+  position: relative;
+}
+
+.top-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s ease;
+}
+
+.top-image img:hover {
+  transform: scale(1.05);
+}
+
+/* === Car Cards Container === */
+.car-container {
+  width: 92%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+/* === Grid Layout for Cards === */
+.car-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 25px;
+  justify-items: center; /* center cards in grid */
+}
+
+/* === Individual Car Card Styling === */
+.car-card {
+  width: 100%;
+  max-width: 320px;
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  color: #fff;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(255, 102, 0, 0.3);
+  overflow: hidden;
+  transition: all 0.3s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  border: 1px solid rgba(255, 165, 0, 0.3);
+}
+
+.car-card:hover {
+  transform: translateY(-8px) rotateX(3deg) rotateY(-3deg);
+  box-shadow: 0 15px 35px rgba(255, 140, 0, 0.4);
+}
+
+/* === Car Image Inside Card === */
+.car-image img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-bottom: 2px solid #ff6600;
+}
+
+/* === Car Content === */
+.car-content {
+  padding: 20px;
+  text-align: left;
+}
+
+.car-content h3 {
+  color: #ff6600;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+}
+
+.car-content p {
+  font-size: 0.95rem;
+  color: #ddd;
+  margin: 4px 0;
+}
+
+.car-content hr {
+  border: none;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin: 10px 0;
+}
+
+/* === Book Button === */
+.book-btn {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #ff6600, #ff3300);
+  color: #fff;
+  border: none;
+  padding: 10px 0;
+  font-weight: bold;
+  border-radius: 8px;
+  margin-top: 10px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.book-btn:hover {
+  background: linear-gradient(90deg, #ff8533, #ff5500);
+  box-shadow: 0 0 15px rgba(255, 102, 0, 0.6);
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .top-image {
+    height: 250px;
+  }
+  .car-image img {
+    height: 180px;
+  }
+}

@@ -1,0 +1,51 @@
+<div style="padding-top: 25px;"></div>
+<div class="top-image">
+  <img src="../../../../../assets/images/1.jpg">
+</div>
+
+<div style="padding-top: 40px;"></div>
+
+<div style="width: 92%; margin: 0 auto;">
+  <!-- Spinner replacement -->
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+
+  <!-- Table replacement -->
+  <table class="custom-table">
+    <thead>
+    <tr>
+      <th style="font-weight: bolder; color: #003973;">Username</th>
+      <th style="font-weight: bolder; color: #003973;">Email</th>
+      <th style="font-weight: bolder; color: #003973;">From</th>
+      <th style="font-weight: bolder; color: #003973;">To</th>
+      <th style="font-weight: bolder; color: #003973;">Days</th>
+      <th style="font-weight: bolder; color: #003973;">Price</th>
+      <th style="font-weight: bolder; color: #003973;">Status</th>
+      <th style="font-weight: bolder; color: #003973;">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let booking of bookedCars">
+      <td>{{ booking.username }}</td>
+      <td>{{ booking.email }}</td>
+      <td>{{ booking.fromDate | date: 'MMM d, y' }}</td>
+      <td>{{ booking.toDate | date: 'MMM d, y' }}</td>
+      <td>{{ booking.days }}</td>
+      <td>{{ booking.amount }}</td>
+      <td>
+        <strong
+          [ngStyle]="{'color': booking.bookCarStatus === 'APPROVED' ? 'green' : booking.bookCarStatus === 'REJECTED' ? 'blue' : 'red'}">
+          {{ booking.bookCarStatus }}
+        </strong>
+      </td>
+      <td>
+          <span *ngIf="booking.bookCarStatus == 'PENDING'">
+            <button style="margin-left: 10px;" (click)="changeBookingStatus(booking.id,'Approve')">Approve</button>
+            <button style="margin-left: 10px; color: white;" (click)="changeBookingStatus(booking.id,'Reject')">Reject</button>
+          </span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
