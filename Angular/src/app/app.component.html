@@ -1,0 +1,82 @@
+<!-- HEADER: If NOT logged in -->
+<div *ngIf="!isAdminLoggedIn && !isCustomerLoggedIn">
+  <header class="main-header custom-navbar">
+    <div class="navbar-title">
+      <img src="../assets/images/logo.png" width="10%" height="5%" style="margin-left: 25px">
+      <a routerLink="/login">Ridebee</a>
+    </div>
+    <div class="nav-links">
+      <a class="link-button" routerLink="/register" routerLinkActive="active">Signup</a>
+      <a class="link-button" routerLink="/login" routerLinkActive="active">Login</a>
+    </div>
+  </header>
+</div>
+
+<!-- HEADER: Admin -->
+<div *ngIf="isAdminLoggedIn">
+  <header class="main-header custom-navbar">
+    <div class="navbar-title">
+      <img src="../assets/images/logo.png" width="10%" height="5%" style="margin-left: 25px">
+      <a routerLink="/login">Ridebee</a>
+    </div>
+    <div class="nav-links">
+      <a class="link-button" routerLink="/admin/dashboard">Dashboard</a>
+      <a class="link-button" routerLink="/admin/car">Post Car</a>
+      <a class="link-button" routerLink="/admin/bookings">Bookings</a>
+      <a class="link-button" routerLink="/admin/car/search">Search</a>
+      <a class="link-button" (click)="logout()">Logout</a>
+    </div>
+  </header>
+</div>
+
+<!-- HEADER: Customer -->
+<div *ngIf="isCustomerLoggedIn">
+  <header class="main-header custom-navbar">
+    <div class="navbar-title">
+      <img src="../assets/images/logo.png" width="10%" height="5%" style="margin-left: 25px">
+      <a routerLink="/login">Ridebee</a>
+    </div>
+    <div class="nav-links">
+      <a class="link-button" routerLink="/customer/dashboard">Dashboard</a>
+      <a class="link-button" routerLink="/customer/bookings">Bookings</a>
+      <a class="link-button" routerLink="/customer/search">Search</a>
+      <a class="link-button" (click)="logout()">Logout</a>
+    </div>
+  </header>
+</div>
+
+<!-- ROUTES -->
+<router-outlet></router-outlet>
+
+<!-- ⭐ FOOTER (Hidden on login & signup) ⭐ -->
+<footer class="footer" *ngIf="showFooter">
+  <div class="footer-container">
+
+    <div class="footer-section about">
+      <h3><i class="bi bi-car-front-fill"></i> Ridebee</h3>
+      <p>Experience effortless car rentals with Ridebee.</p>
+      <div class="social-links">
+        <a href="#"><i class="bi bi-facebook"></i></a>
+        <a href="#"><i class="bi bi-instagram"></i></a>
+        <a href="#"><i class="bi bi-twitter-x"></i></a>
+      </div>
+    </div>
+
+    <div class="footer-section contact">
+      <h3><i class="bi bi-headset"></i> Contact Us</h3>
+      <p><i class="bi bi-envelope"></i> support@ridebee.com</p>
+      <p><i class="bi bi-telephone"></i> +91 9359157054</p>
+      <p><i class="bi bi-clock"></i> Mon–Sat: 8 AM – 5 PM</p>
+      <p><i class="bi bi-geo-alt"></i> Pune</p>
+    </div>
+
+    <div class="footer-section map">
+      <h3><i class="bi bi-geo-alt-fill"></i> Find Us</h3>
+      <div id="leaflet-map" class="map-container"></div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    © 2025 Ridebee. All Rights Reserved made by Pratik Chaudhari
+  </div>
+</footer>

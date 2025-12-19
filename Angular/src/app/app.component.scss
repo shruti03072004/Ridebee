@@ -1,0 +1,161 @@
+/* ----------------------------------------------------
+   HEADER (Black Navbar + White Glow Shadow)
+----------------------------------------------------- */
+.main-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 25px;
+  background-color: #000;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  position: sticky;
+  top: 0;
+  z-index: 20;
+
+  /* Soft premium white glow under navbar */
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.18);
+}
+
+/* Logo */
+.navbar-title a {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.navbar-title a:hover {
+  color: #ff914d;
+}
+
+/* Nav Links */
+.nav-links a.link-button {
+  margin-left: 25px;
+  color: #ffffff;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Hover → orange */
+.nav-links a.link-button:hover {
+  color: #ff914d;
+  transform: scale(1.05);
+}
+
+/* Active link */
+.nav-links a.active {
+  color: #ff914d;
+}
+
+
+
+
+
+/* ----------------------------------------------------
+   COMPACT REDESIGNED FOOTER (Optimized)
+----------------------------------------------------- */
+.footer {
+  background: linear-gradient(145deg, #0a0a0a, #1b1b1b);
+  color: #fff;
+  padding: 35px 0 15px;
+  font-family: "Poppins", sans-serif;
+  border-top: 2px solid #ff7b00;
+  box-shadow: 0 -3px 15px rgba(255, 128, 0, 0.2);
+}
+
+.footer-container {
+  width: 90%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+}
+
+.footer-section {
+  background: #111;
+  border-radius: 14px;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 123, 0, 0.25);
+  box-shadow: 3px 3px 12px rgba(0,0,0,0.55), -3px -3px 12px rgba(255,123,0,0.1);
+  transition: 0.3s ease;
+}
+
+.footer-section:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 0 18px rgba(255, 123, 0, 0.55);
+}
+
+.footer-section h3 {
+  font-size: 18px;
+  color: #ff7b00;
+  margin-bottom: 10px;
+}
+
+.footer-section p {
+  font-size: 14px;
+  color: #ddd;
+  line-height: 1.4;
+}
+
+/* Social Icons */
+.social-links {
+  margin-top: 10px;
+  color: blue;
+}
+
+.social-links a {
+  margin-right: 12px;
+  font-size: 20px;
+  color: rgb(48, 48, 182);
+  transition: 0.25s;
+}
+
+.social-links a:hover {
+  color: #fff;
+  text-shadow: 0 0 12px rgba(0, 13, 255, 0.6);
+}
+
+/* Map */
+.map-container {
+  width: 100%;
+  height: 220px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 123, 0, 0.4);
+  box-shadow: 0 0 18px rgba(255, 123, 0, 0.25);
+}
+
+#leaflet-map {
+  width: 100%;
+  height: 100%;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+  text-align: center;
+  padding-top: 15px;
+  padding-bottom: 5px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  color: #aaa;
+  font-size: 13px;
+}
+
+.footer-bottom span {
+  color: #ff7b00;
+  font-weight: 600;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .footer-container {
+    grid-template-columns: 1fr;
+  }
+  .footer-section {
+    width: 100%;
+  }
+}

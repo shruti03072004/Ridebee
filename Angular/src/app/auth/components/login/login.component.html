@@ -1,0 +1,40 @@
+<div class="top-image">
+  <img src="../../../../../assets/images/1.jpg">
+</div>
+
+<div class="bg" style="background-color: #F8F8F8;">
+  <!-- Spinner Replacement -->
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+
+  <div class="parent" *ngIf="!isSpinning">
+    <div class="child">
+      <div class="imgDiv">
+        <h1 style="text-align: center; font-weight: bold; color:#254e7a">Login</h1>
+      </div>
+
+      <form [formGroup]="loginform">
+        <div class="form-item">
+          <label for="email" style="font-weight: bold; color: #003973;">Email</label>
+          <input type="text" id="email" placeholder="Email" formControlName="email" class="form-control" />
+          <small *ngIf="loginform.controls['email'].invalid && loginform.controls['email'].touched" class="error-tip">
+            Please input your email!
+          </small>
+        </div>
+
+        <div class="form-item">
+          <label for="password" style="font-weight: bold; color: #003973;">Password</label>
+          <input type="password" id="password" placeholder="Password" formControlName="password" class="form-control" />
+          <small *ngIf="loginform.controls['password'].invalid && loginform.controls['password'].touched" class="error-tip">
+            Please input your Password!
+          </small>
+        </div>
+
+        <button type="button" class="btn login-form-button login-form-margin" (click)="login()"
+                [disabled]="loginform.invalid">Log in</button>
+        Or <a routerLink="/register"> register now! </a>
+      </form>
+    </div>
+  </div>
+</div>

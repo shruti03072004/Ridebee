@@ -1,0 +1,54 @@
+<div class="page-wrapper">
+  <div class="car-booking-wrapper">
+
+    <!-- Spinner -->
+    <div *ngIf="isSpinning" class="spinner-wrapper">
+      <div class="spinner"></div>
+      <p>Working...</p>
+    </div>
+
+    <!-- Booking Form -->
+    <form [formGroup]="bookACarForm" *ngIf="!isSpinning" class="booking-form">
+      <div class="form-grid">
+        <!-- From Date -->
+        <div class="form-group">
+          <label for="fromDate">From Date</label>
+          <input type="date" formControlName="fromDate" id="fromDate" />
+        </div>
+
+        <!-- To Date -->
+        <div class="form-group">
+          <label for="toDate">To Date</label>
+          <input type="date" formControlName="toDate" id="toDate" />
+        </div>
+
+        <!-- Book Button -->
+        <div class="form-group book-btn-group">
+          <button type="button" class="book-button" (click)="bookCar(bookACarForm.value)">
+            Book Car
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Car Image -->
+    <div class="car-image-wrapper">
+      <img class="car-image" [src]="car.processedImg" alt="Car Image" />
+      <div class="badge">{{car.type}}</div>
+    </div>
+
+    <!-- Car Details -->
+    <div class="car-details">
+      <h2 class="car-title">{{car.brand}} - {{car.name}}</h2>
+      <p class="car-description">{{car.description}}</p>
+
+      <div class="car-specs-wrapper">
+        <div class="spec-item"><strong>Price:</strong> Rs.{{car.price}}</div>
+        <div class="spec-item"><strong>Color:</strong> {{car.color}}</div>
+        <div class="spec-item"><strong>Transmission:</strong> {{car.transmission}}</div>
+        <div class="spec-item"><strong>Year:</strong> {{car.modelYear | date:'yyyy'}}</div>
+      </div>
+    </div>
+
+  </div>
+</div>

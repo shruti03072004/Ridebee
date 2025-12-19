@@ -1,0 +1,62 @@
+<div style="padding-top: 25px;"></div>
+
+<!-- Top Image -->
+<div class="top-image">
+  <img src="../../../../../assets/images/1.jpg" alt="Top Image">
+</div>
+
+<div style="padding-top: 40px;"></div>
+
+<div style="width: 92%; margin: 0 auto;">
+
+  <!-- Spinner -->
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+
+  <!-- Table Wrapper for horizontal scroll -->
+  <div class="table-wrapper">
+    <table class="booking-table">
+      <thead>
+        <tr>
+          <th>Username</th>
+          <th>Email</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Days</th>
+          <th>Price</th>
+          <th>Status</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let booking of bookedCars">
+          <td>{{ booking.username }}</td>
+          <td>{{ booking.email }}</td>
+          <td>{{ booking.fromDate | date: 'MMM d, y' }}</td>
+          <td>{{ booking.toDate | date: 'MMM d, y' }}</td>
+          <td>{{ booking.days }}</td>
+          <td>{{ booking.amount }}</td>
+          <td>
+            <span 
+              class="status-badge" 
+              [ngClass]="{
+                'approved': booking.bookCarStatus === 'APPROVED',
+                'rejected': booking.bookCarStatus === 'REJECTED',
+                'pending': booking.bookCarStatus === 'PENDING'
+              }">
+              {{ booking.bookCarStatus }}
+            </span>
+          </td>
+          <td>
+            <span *ngIf="booking.bookCarStatus === 'PENDING'">
+              <button (click)="changeBookingStatus(booking.id,'Approve')">Approve</button>
+              <button class="danger" (click)="changeBookingStatus(booking.id,'Reject')">Reject</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>

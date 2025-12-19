@@ -1,0 +1,110 @@
+<div class="page-wrapper">
+  <div class="car-search-wrapper">
+
+    <!-- Top Image -->
+    <div class="top-image">
+      <img src="../../../../../assets/images/1.jpg" alt="Car Banner" />
+    </div>
+
+    <!-- Spinner -->
+    <div *ngIf="isSpinning" class="spinner-wrapper">
+      <div class="spinner"></div>
+      <p>Working...</p>
+    </div>
+
+    <!-- Filter Form -->
+    <div *ngIf="!isSpinning" class="filter-form">
+      <div class="filter-grid row gx-4 gy-3" [formGroup]="validateForm">
+
+        <!-- Brand -->
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="brand">Brand</label>
+            <select id="brand" formControlName="brand" class="form-control">
+              <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+            </select>
+            <small class="text-danger" *ngIf="validateForm.controls['brand'].hasError('required') && validateForm.controls['brand'].touched">
+              This Input Is Required!
+            </small>
+          </div>
+        </div>
+
+        <!-- Type -->
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="type">Type</label>
+            <select id="type" formControlName="type" class="form-control">
+              <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+            </select>
+            <small class="text-danger" *ngIf="validateForm.controls['type'].hasError('required') && validateForm.controls['type'].touched">
+              This Input Is Required!
+            </small>
+          </div>
+        </div>
+
+        <!-- Color -->
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="color">Color</label>
+            <select id="color" formControlName="color" class="form-control">
+              <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+            </select>
+            <small class="text-danger" *ngIf="validateForm.controls['color'].hasError('required') && validateForm.controls['color'].touched">
+              This Input Is Required!
+            </small>
+          </div>
+        </div>
+
+        <!-- Transmission -->
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="transmission">Transmission</label>
+            <select id="transmission" formControlName="transmission" class="form-control">
+              <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+            </select>
+            <small class="text-danger" *ngIf="validateForm.controls['transmission'].hasError('required') && validateForm.controls['transmission'].touched">
+              This Input Is Required!
+            </small>
+          </div>
+        </div>
+
+        <!-- Search Button -->
+        <div class="col-12 text-end mt-3">
+          <button type="button" class="btn search-button" (click)="searchCar()">Search Car</button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Car Listing -->
+    <div class="car-grid row gy-4 mt-4">
+      <div class="col-md-6" *ngFor="let car of cars">
+        <div class="car-card">
+          <div class="row g-0">
+
+            <!-- Car Image -->
+            <div class="col-md-6 p-3">
+              <img class="car-image" [src]="car.processedImg" alt="{{car.name}}">
+            </div>
+
+            <!-- Car Details -->
+            <div class="col-md-6 p-3">
+              <h4 class="car-title">{{car.brand}} - {{car.name}}</h4>
+              <p class="car-description">{{car.description}}</p>
+              <hr>
+              <p class="car-specs">
+                <strong>Price:</strong> Rs.{{car.price}}<br>
+                <strong>Color:</strong> {{car.color}}<br>
+                <strong>Transmission:</strong> {{car.transmission}}<br>
+                <strong>Type:</strong> {{car.type}}<br>
+                <strong>Year:</strong> {{car.modelYear | date:'yyyy'}}
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

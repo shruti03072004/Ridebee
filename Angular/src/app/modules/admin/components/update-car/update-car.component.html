@@ -1,0 +1,116 @@
+<div style="margin-top: 40px">
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+
+  <div class="parent">
+    <div class="child">
+      <div class="imgDiv">
+        <h2 style="text-align: center; font-weight: bold; color: #003973">Update Car</h2>
+      </div>
+
+      <form [formGroup]="updateForm">
+        <div class="file-upload-container">
+
+          <div *ngIf="imagePreview" class="image-preview">
+            <div class="circle-image">
+              <img [src]="imagePreview" alt="Existing Image" class="preview-image" />
+            </div>
+          </div>
+
+          <div *ngIf="existingImage" class="image-preview">
+            <div class="circle-image">
+              <img [src]="existingImage" alt="Existing Image" class="preview-image" />
+            </div>
+          </div>
+
+          <br>
+
+          <label class="file-upload-label">
+            <span style="margin-left: 200px">Select a File</span>
+            <input type="file" accept="image/x-png,image/gif,image/jpeg" (change)="onFileSelected($event)" />
+          </label>
+
+          <br><br>
+
+        </div>
+
+        <div class="form-item">
+          <label for="brand">Select a Brand Name</label>
+          <select id="brand" formControlName="brand" class="form-control">
+            <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+          </select>
+          <p *ngIf="updateForm.controls['brand'].invalid && updateForm.controls['brand'].touched" class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Name" formControlName="name" class="form-control" />
+          <p *ngIf="updateForm.controls['name'].invalid && updateForm.controls['name'].touched" class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="type">Select a Type</label>
+          <select id="type" formControlName="type" class="form-control">
+            <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+          </select>
+          <p *ngIf="updateForm.controls['type'].invalid && updateForm.controls['type'].touched" class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="transmission">Select a Transmission</label>
+          <select id="transmission" formControlName="transmission" class="form-control">
+            <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+          </select>
+          <p *ngIf="updateForm.controls['transmission'].invalid && updateForm.controls['transmission'].touched"
+             class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="color">Select a Color</label>
+          <select id="color" formControlName="color" class="form-control">
+            <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+          </select>
+          <p *ngIf="updateForm.controls['color'].invalid && updateForm.controls['color'].touched" class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="modelYear">Model Year</label>
+          <input type="number" id="modelYear" placeholder="Model Year" formControlName="modelYear" class="form-control" />
+          <p *ngIf="updateForm.controls['modelYear'].invalid && updateForm.controls['modelYear'].touched"
+             class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="price">Price</label>
+          <input type="text" id="price" placeholder="Price" formControlName="price" class="form-control" />
+          <p *ngIf="updateForm.controls['price'].invalid && updateForm.controls['price'].touched" class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <div class="form-item">
+          <label for="description">Description</label>
+          <textarea id="description" rows="3" placeholder="Description" formControlName="description" class="form-control"></textarea>
+          <p *ngIf="updateForm.controls['description'].invalid && updateForm.controls['description'].touched" class="error-tip">
+            This Input Is Required!
+          </p>
+        </div>
+
+        <button type="button" class="btn btn-primary" (click)="updateCar()">Update</button>
+      </form>
+    </div>
+  </div>
+</div>

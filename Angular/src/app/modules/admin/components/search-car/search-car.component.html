@@ -1,0 +1,96 @@
+<div class="page-wrapper">
+  <!-- Top Image -->
+  <div class="top-image">
+    <img src="../../../../../assets/images/1.jpg" alt="Car Banner" />
+  </div>
+
+  <!-- Spinner -->
+  <div *ngIf="isSpinning" class="spinner-wrapper">
+    <div class="spinner"></div>
+    <p>Working...</p>
+  </div>
+
+  <!-- Filter Form -->
+  <div *ngIf="!isSpinning" class="filter-form">
+    <div class="filter-grid" [formGroup]="validateForm">
+
+      <!-- Brand -->
+      <div class="form-item">
+        <label for="brand">Brand</label>
+        <select id="brand" formControlName="brand" class="form-control">
+          <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+        </select>
+        <p class="error-tip" *ngIf="validateForm.controls['brand'].invalid && validateForm.controls['brand'].touched">
+          This Input Is Required!
+        </p>
+      </div>
+
+      <!-- Type -->
+      <div class="form-item">
+        <label for="type">Type</label>
+        <select id="type" formControlName="type" class="form-control">
+          <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+        </select>
+        <p class="error-tip" *ngIf="validateForm.controls['type'].invalid && validateForm.controls['type'].touched">
+          This Input Is Required!
+        </p>
+      </div>
+
+      <!-- Color -->
+      <div class="form-item">
+        <label for="color">Color</label>
+        <select id="color" formControlName="color" class="form-control">
+          <option *ngFor="let color of listOfColor" [value]="color">{{ color }}</option>
+        </select>
+        <p class="error-tip" *ngIf="validateForm.controls['color'].invalid && validateForm.controls['color'].touched">
+          This Input Is Required!
+        </p>
+      </div>
+
+      <!-- Transmission -->
+      <div class="form-item">
+        <label for="transmission">Transmission</label>
+        <select id="transmission" formControlName="transmission" class="form-control">
+          <option *ngFor="let transmission of listOfTransmission" [value]="transmission">{{ transmission }}</option>
+        </select>
+        <p class="error-tip" *ngIf="validateForm.controls['transmission'].invalid && validateForm.controls['transmission'].touched">
+          This Input Is Required!
+        </p>
+      </div>
+
+      <!-- Search Button -->
+      <div class="form-item search-btn">
+        <button type="button" class="search-button" (click)="searchCar()">Search Car</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Car Grid -->
+  <div class="car-grid">
+    <div class="car-card" *ngFor="let car of cars">
+      <div class="car-row">
+
+        <!-- Car Image -->
+        <div class="car-image-wrapper">
+          <img class="car-image" [src]="car.processedImg" alt="{{car.name}}" />
+        </div>
+
+        <!-- Car Details -->
+        <div class="car-details">
+          <h4 class="car-title">{{car.brand}} - {{car.name}}</h4>
+          <p class="car-description">{{car.description}}</p>
+          <hr>
+          <p class="car-specs">
+            <strong>Price:</strong> Rs.{{car.price}}<br>
+            <strong>Color:</strong> {{car.color}}<br>
+            <strong>Transmission:</strong> {{car.transmission}}<br>
+            <strong>Type:</strong> {{car.type}}<br>
+            <strong>Year:</strong> {{car.modelYear | date:'yyyy'}}
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

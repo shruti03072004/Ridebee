@@ -1,0 +1,148 @@
+/* === Page Wrapper (Same as Search Page Mood) === */
+.page-wrapper {
+  min-height: 100vh;
+  padding: 40px 0;
+  background: #f8f8f8;
+  display: flex;
+  justify-content: center;
+}
+
+/* === Main Box === */
+.bookings-wrapper {
+  width: 92%;
+  max-width: 1100px;
+  background: #ffffff;
+  border-radius: 22px;
+  padding: 35px 30px;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.12);
+  margin: 0 auto 40px auto;
+  border: 1px solid rgba(102,126,234,0.2);
+}
+
+/* === Top Image (If you keep it) === */
+.top-image {
+  width: 100%;
+  height: 320px;
+  overflow: hidden;
+  border-radius: 18px;
+  border: 2px solid #a3d6e3;
+  margin-bottom: 30px;
+}
+
+.top-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+.top-image:hover img {
+  transform: scale(1.05);
+}
+
+/* === Spinner === */
+.spinner-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 0;
+  color: #667eea;
+  font-weight: 600;
+}
+
+.spinner {
+  width: 52px;
+  height: 52px;
+  border: 5px solid rgba(102,126,234,0.3);
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin-bottom: 12px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* === Table Wrapper (Glass Clean Like Search Cards) === */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+/* === Table === */
+.booking-table {
+  width: 100%;
+  border-collapse: collapse;
+  border-radius: 18px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(102,126,234,0.2);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+}
+
+/* === Header Styled Like Search Gradient Button === */
+.booking-table thead {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+}
+.booking-table th {
+  padding: 14px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* === Rows === */
+.booking-table tbody tr {
+  transition: background 0.25s ease;
+  background: #ffffff;
+}
+.booking-table tbody tr:hover {
+  background: rgba(102,126,234,0.08);
+}
+
+.booking-table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid rgba(0,0,0,0.07);
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* === Status Badge (Consistent Rounded Look) === */
+.status-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 14px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: #fff;
+}
+
+.status-badge.approved { background: #28a745; }
+.status-badge.rejected { background: #dc3545; }
+.status-badge.pending {
+  background: #ffc107;
+  color: #333;
+}
+
+/* === Responsive === */
+@media (max-width: 768px) {
+  .bookings-wrapper {
+    width: 95%;
+    padding: 25px 20px;
+  }
+
+  .top-image {
+    height: 220px;
+  }
+
+  .booking-table th,
+  .booking-table td {
+    padding: 10px;
+    font-size: 0.85rem;
+  }
+}

@@ -1,0 +1,167 @@
+/* === Page Layout === */
+.admin-wrapper {
+  width: 100%;
+  background: #111;
+  min-height: 100vh;
+  color: #fff;
+  padding-bottom: 60px;
+}
+
+/* === Top Image === */
+.top-image {
+  width: 92%;
+  height: 350px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 22px;
+}
+
+.top-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.7);
+  transition: 0.4s ease;
+}
+
+.top-image:hover img {
+  transform: scale(1.05);
+}
+
+/* === Titles === */
+.admin-content {
+  width: 92%;
+  margin: 0 auto;
+  padding-top: 40px;
+}
+
+.admin-title {
+  font-size: 2.3rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff914d, #ff7a2f);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.admin-subtitle {
+  color: #ccc;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+/* === Car List === */
+.admin-car-list {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* === Car Card === */
+.admin-card {
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  padding: 22px;
+  display: flex;
+  gap: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.35);
+  transition: 0.3s ease;
+}
+
+.admin-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255,145,77,0.5);
+  box-shadow: 0 12px 35px rgba(255,145,77,0.35);
+}
+
+/* === Left Image === */
+.admin-card-img img {
+  width: 230px;
+  height: 170px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* === Right Content === */
+.admin-card-body {
+  flex: 1;
+}
+
+.admin-car-title {
+  color: #ff914d;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.admin-car-desc {
+  color: #ddd;
+  margin: 8px 0 15px;
+  line-height: 1.5;
+}
+
+/* === Specs === */
+.admin-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  font-size: 0.95rem;
+  color: #eee;
+  margin-bottom: 18px;
+}
+
+/* === Buttons === */
+.admin-actions {
+  display: flex;
+  gap: 15px;
+}
+
+.btn-update,
+.btn-delete {
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+/* Orange update button */
+.btn-update {
+  background: linear-gradient(135deg, #ff914d, #ff7a2f);
+  color: #fff;
+}
+
+.btn-update:hover {
+  transform: translateX(3px);
+  box-shadow: 0 0 15px rgba(255,145,77,0.45);
+}
+
+/* Red delete */
+.btn-delete {
+  background: #e64343;
+  color: #fff;
+}
+
+.btn-delete:hover {
+  background: #ff2d2d;
+  transform: translateX(3px);
+}
+/* === Update Button (Electric Blue Theme) === */
+.btn-update {
+  background: linear-gradient(135deg, #108EE9, #0A7ACC);
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s ease;
+  box-shadow: 0 4px 12px rgba(16, 142, 233, 0.25);
+}
+
+.btn-update:hover {
+  transform: translateX(3px);
+  box-shadow: 0 6px 18px rgba(16, 142, 233, 0.45);
+  background: linear-gradient(135deg, #1295F5, #0A7ACC);
+}

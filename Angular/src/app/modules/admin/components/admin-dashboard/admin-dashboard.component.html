@@ -1,0 +1,52 @@
+<div class="admin-wrapper">
+
+  <!-- Top Image -->
+  <div class="top-image">
+    <img src="../../../../../assets/images/1.jpg" />
+  </div>
+
+  <div class="admin-content">
+
+    <h2 class="admin-title">Manage Vehicle Inventory</h2>
+    <p class="admin-subtitle">Edit, update or remove cars from your system</p>
+
+    <!-- CAR LIST -->
+    <div class="admin-car-list">
+
+      <div *ngFor="let car of cars" class="admin-card">
+
+        <!-- Left Image -->
+        <div class="admin-card-img">
+          <img [src]="car.processedImg" alt="{{car.brand}} - {{car.name}}">
+        </div>
+
+        <!-- Right Info -->
+        <div class="admin-card-body">
+
+          <h3 class="admin-car-title">{{car.brand}} - {{car.name}}</h3>
+
+          <p class="admin-car-desc">{{car.description}}</p>
+
+          <div class="admin-specs">
+            <span><b>Price:</b> Rs.{{car.price}}</span>
+            <span><b>Color:</b> {{car.color}}</span>
+            <span><b>Year:</b> {{car.modelYear | date:'yyyy'}}</span>
+            <span><b>Transmission:</b> {{car.transmission}}</span>
+            <span><b>Type:</b> {{car.type}}</span>
+          </div>
+
+          <!-- BUTTONS -->
+          <div class="admin-actions">
+            <button class="btn-update" routerLink="/admin/car/{{car.id}}/edit">Update</button>
+            <button class="btn-delete" (click)="deleteCar(car.id)">Delete</button>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

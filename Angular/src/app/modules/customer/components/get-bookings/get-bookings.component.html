@@ -1,0 +1,49 @@
+<div class="page-wrapper">
+  <div class="bookings-wrapper">
+
+    <!-- Top Image -->
+    <div class="top-image">
+      <img src="../../../../../assets/images/1.jpg" alt="Car Banner" />
+    </div>
+
+    <!-- Spinner -->
+    <div *ngIf="isSpinning" class="spinner-wrapper">
+      <div class="spinner"></div>
+      <p>Working...</p>
+    </div>
+
+    <!-- Booking Table -->
+    <div *ngIf="!isSpinning" class="table-wrapper">
+      <table class="booking-table">
+        <thead>
+          <tr>
+            <th>From</th>
+            <th>To</th>
+            <th>Days</th>
+            <th>Price</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of bookedCars">
+            <td>{{ booking.fromDate | date: 'MMM d, y' }}</td>
+            <td>{{ booking.toDate | date: 'MMM d, y' }}</td>
+            <td>{{ booking.days }}</td>
+            <td>Rs.{{ booking.amount }}</td>
+            <td>
+              <span class="status-badge" 
+                    [ngClass]="{
+                      approved: booking.bookCarStatus === 'APPROVED',
+                      rejected: booking.bookCarStatus === 'REJECTED',
+                      pending: booking.bookCarStatus === 'PENDING'
+                    }">
+                {{ booking.bookCarStatus }}
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>

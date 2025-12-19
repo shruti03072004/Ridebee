@@ -1,0 +1,67 @@
+<div class="top-image">
+  <img src="../../../../../assets/images/1.jpg">
+</div>
+
+<div class="bg" style="background-color: #F8F8F8;">
+
+  <div *ngIf="isSpinning" class="spinner">
+    <p>Working...</p>
+  </div>
+
+  <div class="parent" *ngIf="!isSpinning">
+    <div class="child">
+      <div class="imgDiv">
+        <h1 style="text-align: center; font-weight: bold; color: #254e7a;">Sign Up</h1>
+      </div>
+
+      <form [formGroup]="signupForm">
+        
+        <!-- Name + Email Horizontal -->
+        <div class="form-item" style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <div style="display: flex; flex-direction: column; flex: 1;">
+            <label for="name" style="font-weight: bold; color: #003973; margin-bottom: 5px;">Name</label>
+            <input type="text" id="name" placeholder="Name" formControlName="name" class="form-control" />
+            <small *ngIf="signupForm.controls['name'].invalid && signupForm.controls['name'].touched" class="error-tip">
+              Please input your name!
+            </small>
+          </div>
+
+          <div style="display: flex; flex-direction: column; flex: 1;">
+            <label for="email" style="font-weight: bold; color: #003973; margin-bottom: 5px;">E-mail</label>
+            <input type="text" id="email" placeholder="E-mail" formControlName="email" class="form-control" />
+            <small *ngIf="signupForm.controls['email'].invalid && signupForm.controls['email'].touched" class="error-tip">
+              The input is not a valid E-mail!
+            </small>
+          </div>
+        </div>
+
+        <!-- Password + Confirm Password Horizontal -->
+        <div class="form-item" style="display: flex; gap: 20px; flex-wrap: wrap;">
+          <div style="display: flex; flex-direction: column; flex: 1;">
+            <label for="password" style="font-weight: bold; color: #003973; margin-bottom: 5px;">Password</label>
+            <input type="password" id="password" placeholder="Password" formControlName="password" class="form-control" />
+            <small *ngIf="signupForm.controls['password'].invalid && signupForm.controls['password'].touched" class="error-tip">
+              <ng-container *ngIf="signupForm.controls['password'].hasError('required')">Password is required!</ng-container>
+              <ng-container *ngIf="signupForm.controls['password'].hasError('pattern')">Password must contain 8 characters, including 1 lowercase, 1 uppercase, 1 number, and 1 special character.</ng-container>
+            </small>
+          </div>
+
+          <div style="display: flex; flex-direction: column; flex: 1;">
+            <label for="confirmPassword" style="font-weight: bold; color: #003973; margin-bottom: 5px;">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm Password" formControlName="confirmPassword" class="form-control" />
+            <small *ngIf="signupForm.controls['confirmPassword'].invalid && signupForm.controls['confirmPassword'].touched" class="error-tip">
+              <ng-container *ngIf="signupForm.controls['confirmPassword'].hasError('required')">Please confirm your password!</ng-container>
+              <ng-container *ngIf="signupForm.controls['confirmPassword'].hasError('confirm')">Passwords do not match!</ng-container>
+            </small>
+          </div>
+        </div>
+
+        <!-- Register Button -->
+        <button type="button" class="btn login-form-button login-form-margin" (click)="signup()" [disabled]="signupForm.invalid">
+          Register
+        </button>
+        Or <a routerLink="/login"> login now! </a>
+      </form>
+    </div>
+  </div>
+</div>

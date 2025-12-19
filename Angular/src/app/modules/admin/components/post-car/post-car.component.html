@@ -1,0 +1,85 @@
+<div class="post-wrapper-black">
+  <div class="post-card">
+    <h2 class="post-title">Post Car</h2>
+    <div class="post-form">
+
+      <!-- LEFT SECTION: Image Upload -->
+      <div class="left-section">
+        <label for="upload_profile_image" class="image-upload">
+          <ng-container *ngIf="!imagePreview">
+            <div class="upload-placeholder">Click to Upload</div>
+          </ng-container>
+          <img *ngIf="imagePreview" [src]="imagePreview" class="preview-image" />
+        </label>
+        <input type="file" id="upload_profile_image" (change)="onFileSelected($event)" />
+      </div>
+
+      <!-- RIGHT SECTION: Form Fields -->
+      <form class="right-section" [formGroup]="postCarForm" (ngSubmit)="postCar()">
+
+        <div class="form-row full">
+          <div class="form-item">
+            <label>Brand</label>
+            <select formControlName="brand">
+              <option *ngFor="let brand of listOfBrands" [value]="brand">{{ brand }}</option>
+            </select>
+          </div>
+        </div>
+ <div class="form-row full">
+          <div class="form-item">
+            <label>Car Name</label>
+            <input
+              type="text"
+              placeholder="Car Name"
+              formControlName="name"  />
+          </div>
+        </div>
+
+        <div class="form-row three">
+          <div class="form-item">
+            <label>Type</label>
+            <select formControlName="type">
+              <option *ngFor="let type of listOfType" [value]="type">{{ type }}</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label>Transmission</label>
+            <select formControlName="transmission">
+              <option *ngFor="let t of listOfTransmission" [value]="t">{{ t }}</option>
+            </select>
+          </div>
+
+          <div class="form-item">
+            <label>Color</label>
+            <select formControlName="color">
+              <option *ngFor="let c of listOfColor" [value]="c">{{ c }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-row two">
+          <div class="form-item">
+            <label>Model Year</label>
+            <input type="number" placeholder="2025" formControlName="year" />
+          </div>
+
+          <div class="form-item">
+            <label>Price</label>
+            <input type="text" placeholder="₹ Price" formControlName="price" />
+          </div>
+        </div>
+
+        <div class="form-row full">
+          <div class="form-item">
+            <label>Description</label>
+            <textarea rows="3" placeholder="Description" formControlName="description"></textarea>
+          </div>
+        </div>
+
+        <button type="submit" class="submit-button">Post Car</button>
+      </form>
+
+    </div>
+  </div>
+</div>
